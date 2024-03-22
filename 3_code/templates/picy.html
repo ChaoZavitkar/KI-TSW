@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block subtitle %}Picy{% endblock %}
+{% block main %}
+<h2> Nabídka pic </h2>
+<ol>
+    {%for pica in nabidka%}
+     <li>{{pica["název"]}}: {{pica["cena"]}}</li>
+    {%endfor%}
+</ol>
+
+
+{% endblock %}
