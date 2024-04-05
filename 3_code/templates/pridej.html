@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+{% block subtitle %}Pridej{% endblock %}
+{% block main %}
+
+<form action="/pridej" method="post">
+    <label for="nazev">Název: </label>
+    <input type="text" name="nazev" required><br><br>
+    <label for="cena">Cena: </label>
+    <input type="text" name="cena" required><br><br>
+    <button type="submit">Odeslat</button>
+</form>
+<!-- Display flashed messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+
+{% endblock %}

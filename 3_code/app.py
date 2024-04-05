@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, make_response, flash, get_flashed_messages
 import json
 
-
-
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "asdasdas"
 
@@ -55,6 +53,15 @@ def objednej():
             faktura.write(f"Zaplat:{celkova_cena}")
         return redirect("/")
     return render_template("objednej.html")
+
+@app.route("/pridej", methods=["GET","POST"])
+def pridej():
+    if request.method == "POST":
+        nazev = request.form.get("nazev")
+        mnozstvi = int(request.form.get("cena"))
+        nabidka.append({"název": nazev, "cena": mnozstvi})
+        return redirect("/")
+    return render_template("pridej.html")
 
 @app.route("/api/picy", methods=["GET"])
 def api_get_picy():
