@@ -1,3 +1,4 @@
+# pokud nejde ride.py, zkus python -m robotide.__init__
 from flask import Flask, render_template, request, session, redirect, make_response, flash, get_flashed_messages
 import json
 
@@ -118,4 +119,3 @@ def api_put_pica():
 if __name__ == "__main__":
     
     app.run(host="0.0.0.0", port=5000, debug=True)
-    
